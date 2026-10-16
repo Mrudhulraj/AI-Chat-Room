@@ -3,6 +3,8 @@ package handlers
 import (
 	"fmt"
 
+	w "live-video-meet/pkg/webrtc"
+
 	"github.com/gofiber/contrib/v3/websocket"
 	"github.com/gofiber/fiber/v3"
 	gguid "github.com/google/uuid"
@@ -29,8 +31,18 @@ func RoomWebsocket(c *websocket.Conn) {
 	}
 
 	_, _, room := createOrGetRoom(uuid)
+
+	w.RoomConn(c, w.Peers)
 }
 
-func createOrGetRoom(uuid string) (string, string, Room) {
+func createOrGetRoom(uuid string) (string, string, *w.Room) {
+
+}
+
+func RoomViewerWebSocket(c *websocket.Conn) {
+
+}
+
+func roomViewerConn(c *websocket.Conn, p *w.Peers) {
 
 }
